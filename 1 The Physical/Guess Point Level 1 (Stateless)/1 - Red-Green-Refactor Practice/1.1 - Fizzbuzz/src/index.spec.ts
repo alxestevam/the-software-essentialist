@@ -24,4 +24,15 @@ describe("fizzbuzz", () => {
         const output = fizzBuzz(input)
         expect(output).toEqual('FizzBuzz')
     })
+
+    it.each([
+        [1, '1'],
+        [2, '2'],
+        [4, '4'],
+        [7, '7']
+    ])
+    ('should return the input number as string if it is not multiple of 3 or 5', (input: number, result: string) => {
+        const output = fizzBuzz(input)
+        expect(output).toEqual(result)
+    })
 });
