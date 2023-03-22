@@ -8,14 +8,20 @@ describe("fizzbuzz", () => {
     })
 
     it.each([3, 6, 9, 12])
-    ('should return Fizz for multiples of 3', (input: number) => {
+    ('should return Fizz for multiples of 3 and not multiple of 5', (input: number) => {
         const output = fizzBuzz(input)
         expect(output).toEqual('Fizz')
     })
 
-    it.each([5, 10, 15, 20])
-    ('should return Buzz for multiples of 5', (input: number) => {
+    it.each([5, 10, 20, 25])
+    ('should return Buzz for multiples of 5 and not multiple of 3', (input: number) => {
         const output = fizzBuzz(input)
         expect(output).toEqual('Buzz')
+    })
+
+    it.each([15, 30, 45, 60])
+    ('should return FizzBuzz for multiples of 3 and 5', (input: number) => {
+        const output = fizzBuzz(input)
+        expect(output).toEqual('FizzBuzz')
     })
 });
