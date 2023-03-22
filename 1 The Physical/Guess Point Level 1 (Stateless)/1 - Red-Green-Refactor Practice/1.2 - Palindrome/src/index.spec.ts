@@ -19,6 +19,12 @@ describe('palindrome checker', () => {
         const output = sut.check(input)
         expect(output).toEqual(false)
     })
+
+    it.each(['Mom', 'WoW'])
+    ('should return true if the input is a palindrome even if the casing is off', (input: string) => {
+        const output = sut.check(input)
+        expect(output).toEqual(true)
+    })
     
   
 })
