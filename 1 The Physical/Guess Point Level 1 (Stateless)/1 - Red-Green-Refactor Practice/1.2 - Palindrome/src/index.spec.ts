@@ -25,6 +25,12 @@ describe('palindrome checker', () => {
         const output = sut.check(input)
         expect(output).toEqual(true)
     })
+
+    it.each(['Was It A Rat I Saw', 'Never Odd or Even'])
+    ('should return true for palindromes in phrases', (input: string) => {
+        const output = sut.check(input)
+        expect(output).toEqual(true)
+    })
     
   
 })
