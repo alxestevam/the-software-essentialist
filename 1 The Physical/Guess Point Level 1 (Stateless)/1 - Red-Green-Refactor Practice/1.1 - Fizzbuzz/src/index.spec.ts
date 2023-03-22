@@ -12,4 +12,10 @@ describe("fizzbuzz", () => {
         const output = fizzBuzz(input)
         expect(output).toEqual('Fizz')
     })
+
+    it.each([5, 10, 15, 20])
+    ('should return Buzz for multiples of 5', (input: number) => {
+        const output = fizzBuzz(input)
+        expect(output).toEqual('Buzz')
+    })
 });
