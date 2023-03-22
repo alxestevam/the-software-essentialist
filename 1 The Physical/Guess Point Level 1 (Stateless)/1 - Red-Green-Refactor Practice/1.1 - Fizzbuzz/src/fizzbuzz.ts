@@ -1,17 +1,23 @@
+const isMultipleOfThree = (number: number) => number % 3 === 0;
+
+const isMultipleOfFive = (number: number) => number % 5 === 0;
+
+const isOutOfRange = (number: number) => number < 1 || number > 100;
+
 export function fizzBuzz(number: number) {
-    if (number < 1 || number > 100) {
+    if (isOutOfRange(number)) {
         throw new Error('Outside of range 1 to 100')
     }
 
-    if (number % 3 === 0 && number % 5 === 0) {
+    if (isMultipleOfThree(number) && isMultipleOfFive(number)) {
         return 'FizzBuzz'
     }
 
-    if (number % 5 === 0) {
+    if (isMultipleOfFive(number)) {
         return 'Buzz'
     }
 
-    if (number % 3 === 0) {
+    if (isMultipleOfThree(number)) {
         return 'Fizz'
     }
 
