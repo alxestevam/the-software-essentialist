@@ -8,18 +8,15 @@ describe('palindrome checker', () => {
         sut = new PalindromeChecker();
     })
 
-    it('should return true if mom is an input', () => {
-        const output = sut.check('mom')
+    it.each(['mom', 'wow'])
+    ('should return true if the input is a palindrome', (input: string) => {
+        const output = sut.check(input)
         expect(output).toEqual(true)
     })
 
-    it('should return true if wow is an input', () => {
-        const output = sut.check('wow')
-        expect(output).toEqual(true)
-    })
-
-    it('should return false if bill is an input', () => {
-        const output = sut.check('bill')
+    it.each(['bill'])
+    ('should return false if the input is not a palindrome', (input: string) => {
+        const output = sut.check(input)
         expect(output).toEqual(false)
     })
     
