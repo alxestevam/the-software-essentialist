@@ -14,7 +14,7 @@ describe('palindrome checker', () => {
         expect(output).toEqual(true)
     })
 
-    it.each(['bill'])
+    it.each(['bill', 'these', 'tests', 'are', 'awesome'])
     ('should return false if the input is not a palindrome', (input: string) => {
         const output = sut.check(input)
         expect(output).toEqual(false)

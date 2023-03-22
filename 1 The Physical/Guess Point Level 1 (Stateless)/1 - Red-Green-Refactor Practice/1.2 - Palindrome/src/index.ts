@@ -1,5 +1,9 @@
 export class PalindromeChecker {
     check(string: string) {
-        return string !== 'bill'
+        return string.toLowerCase()
+                     .replace(/\s/g, '')
+                     .split('')
+                     .reverse()
+                     .join('') === string.toLowerCase().replace(/\s/g, '')
     }
 }
