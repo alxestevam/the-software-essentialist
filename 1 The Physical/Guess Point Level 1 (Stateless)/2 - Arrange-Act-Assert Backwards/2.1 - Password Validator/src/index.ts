@@ -4,10 +4,14 @@ export class PasswordValidator {
             return false
         }
 
-        if (!string.match(/\d/)?.length) {
+        if (!string.match(/\d/)) {
             return false
         }
-        
+
+        if (!string.match(/[A-Z]/)) {
+            return false
+        }
+
         return true
     }
 }

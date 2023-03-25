@@ -22,6 +22,11 @@ describe('password validator', () => {
         const output = sut.validate('A12345')
         expect(output).toEqual(true)
     })
+
+    it('should return false if it does not have at least one upper case letter', () => {
+        const output = sut.validate('abc123')
+        expect(output).toEqual(false)
+    })
 })
 
 
