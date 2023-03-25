@@ -1,20 +1,23 @@
 export class PasswordValidator {
     validate(value: string) {
+        const errors = []
+
         if (!this.isValidLength(value)) {
-            return {
-                result: false
-            }
+            errors.push('Invalid length')
         }
 
         if (!this.containsAtLeastOneDigit(value)) {
-            return {
-                result: false
-            }
+            errors.push('The password provided does not have at least one digit')
         }
 
         if (!this.containsAtLeastOneUpperCaseLetter(value)) {
+            errors.push('The password provided does not have at least one upper case letter')
+        }
+
+        if (errors.length) {
             return {
-                result: false
+                result: false,
+                errors,
             }
         }
 
