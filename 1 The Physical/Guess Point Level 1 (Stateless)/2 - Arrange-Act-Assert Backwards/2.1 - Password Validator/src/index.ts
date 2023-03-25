@@ -1,18 +1,26 @@
 export class PasswordValidator {
     validate(value: string) {
         if (!this.isValidLength(value)) {
-            return false
+            return {
+                result: false
+            }
         }
 
         if (!this.containsAtLeastOneDigit(value)) {
-            return false
+            return {
+                result: false
+            }
         }
 
         if (!this.containsAtLeastOneUpperCaseLetter(value)) {
-            return false
+            return {
+                result: false
+            }
         }
 
-        return true
+        return {
+            result: true
+        }
     }
 
     private isValidLength(value: string) {
