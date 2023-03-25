@@ -12,6 +12,16 @@ describe('password validator', () => {
         const output = sut.validate('');
         expect(output).toEqual(false)
     })
+
+    it('should return false if it does not have at least one digit', () => {
+        const output = sut.validate('abcde');
+        expect(output).toEqual(false)
+    })
+
+    it('should return true if it is a valid password', () => {
+        const output = sut.validate('A12345')
+        expect(output).toEqual(true)
+    })
 })
 
 

@@ -1,5 +1,13 @@
 export class PasswordValidator {
     validate(string: string) {
-        return false
+        if (string.length < 5 || string.length > 15) {
+            return false
+        }
+
+        if (!string.match(/\d/)?.length) {
+            return false
+        }
+        
+        return true
     }
 }
