@@ -20,4 +20,13 @@ describe('stats calculator', () => {
         expect(stats.max).toEqual(result)
     })
 
+    it.each([
+        [[2, 4, 21, -8, 53, 40], 18.666666666667],
+        [[1, 2, 3, 4, 5, 6], 3.5],
+        [[3, 4, -2, 7, 10, 4], 4.333333333333333],
+    ])('should return the average value in the array', (input: number[], result: number) => {
+        const stats = calculateStats(input)
+        expect(stats.avg).toBeCloseTo(result)
+    })
+
 })
