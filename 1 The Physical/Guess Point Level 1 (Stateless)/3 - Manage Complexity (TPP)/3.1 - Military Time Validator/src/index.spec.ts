@@ -44,4 +44,8 @@ describe('military time validator', () => {
     it("should return false if the range ends with a negative minute", () => {
         expect(MilitaryTimeValidator.validate('20:00 - 12:-23')).toEqual(false)
     })
+
+    it("should return false if the range is not in 'dd:dd - dd:dd' format. ('d' means digit)", () => {
+        expect(MilitaryTimeValidator.validate('20:00 - 12:aa')).toEqual(false)
+    })
 })

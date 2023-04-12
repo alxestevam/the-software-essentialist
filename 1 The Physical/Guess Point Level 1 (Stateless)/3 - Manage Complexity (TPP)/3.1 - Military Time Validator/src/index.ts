@@ -1,6 +1,10 @@
 export class MilitaryTimeValidator {
-    static validate(timeRange: string) {
-        const [start, end] = timeRange.split(' - ')
+    static validate(range: string) {
+        if (!MilitaryTimeValidator.isValidRangeFormat(range)) {
+            return false
+        }
+
+        const [start, end] = range.split(' - ')
 
         if (!MilitaryTimeValidator.validateTime(start)) {
             return false;
@@ -11,6 +15,10 @@ export class MilitaryTimeValidator {
         }
 
         return true
+    }
+
+    private static isValidRangeFormat(range: string) {
+        return range.match(/^\d\d:\d\d - \d\d:\d\d$/)
     }
 
     private static validateTime(timeString: string) {
