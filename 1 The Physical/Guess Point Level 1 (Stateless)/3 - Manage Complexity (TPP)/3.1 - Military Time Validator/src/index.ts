@@ -8,6 +8,10 @@ export class MilitaryTimeValidator {
             return false
         }
 
+        if (Number(startMinute) > 59) {
+            return false
+        }
+
         return true
     }
 }
