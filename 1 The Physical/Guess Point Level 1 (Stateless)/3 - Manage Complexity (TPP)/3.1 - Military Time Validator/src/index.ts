@@ -1,0 +1,13 @@
+export class MilitaryTimeValidator {
+    static validate(timeRange: string) {
+        const [start, end] = timeRange.split(' - ')
+
+        const [startHour, startMinute] = start.split(':')
+
+        if (Number(startHour) > 24) {
+            return false
+        }
+
+        return true
+    }
+}
