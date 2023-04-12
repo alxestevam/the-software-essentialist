@@ -4,7 +4,7 @@ export class MilitaryTimeValidator {
 
         const [startHour, startMinute] = start.split(':')
 
-        if (Number(startHour) > 24) {
+        if (Number(startHour) > 23) {
             return false
         }
 
