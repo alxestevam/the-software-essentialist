@@ -4,6 +4,14 @@ describe('military time validator', () => {
     it("should return true if the range is '01:12 - 14:32'", () => {
         expect(MilitaryTimeValidator.validate('01:12 - 14:32')).toEqual(true)
     })
+    
+    it("should return false if the range is '25:00 - 12:23'", () => {
+        expect(MilitaryTimeValidator.validate('25:00 - 12:23')).toEqual(false)
+    })
+
+    it("should return true if the range is '22:00 - 23:12'", () => {
+        expect(MilitaryTimeValidator.validate('22:00 - 23:12')).toEqual(true)
+    })
 
     it("should return false if the range starts with a time with an hour greater than 23", () => {
         expect(MilitaryTimeValidator.validate('24:00 - 12:23')).toEqual(false)
