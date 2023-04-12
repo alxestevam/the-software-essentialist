@@ -8,7 +8,7 @@ export class MilitaryTimeValidator {
             return false
         }
 
-        if (Number(startMinute) > 59) {
+        if (Number(startMinute) > 59 || Number(startMinute) < 0) {
             return false
         }
 

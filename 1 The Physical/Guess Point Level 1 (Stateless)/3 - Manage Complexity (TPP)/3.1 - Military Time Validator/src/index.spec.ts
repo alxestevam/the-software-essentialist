@@ -16,4 +16,8 @@ describe('military time validator', () => {
     it("should return false if the range starts with a negative hour", () => {
         expect(MilitaryTimeValidator.validate('-20:00 - 12:23')).toEqual(false)
     })
+
+    it("should return false if the range starts with a negative minute", () => {
+        expect(MilitaryTimeValidator.validate('20:-10 - 12:23')).toEqual(false)
+    })
 })
