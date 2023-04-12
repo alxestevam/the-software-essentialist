@@ -24,4 +24,8 @@ describe('military time validator', () => {
     it("should return false if the range ends with a time with an hour greater than 23", () => {
         expect(MilitaryTimeValidator.validate('20:00 - 24:00')).toEqual(false)
     })
+
+    it("should return false if the range ends with a time with more than 59 minutes", () => {
+        expect(MilitaryTimeValidator.validate('20:00 - 23:60')).toEqual(false)
+    })
 })
