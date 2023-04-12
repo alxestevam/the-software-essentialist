@@ -2,19 +2,25 @@ export class MilitaryTimeValidator {
     static validate(timeRange: string) {
         const [start, end] = timeRange.split(' - ')
 
-        const [startHour, startMinute] = start.split(':')
+        if (!MilitaryTimeValidator.validateTime(start)) {
+            return false;
+        }
 
-        if (Number(startHour) > 23 || Number(startHour) < 0) {
+        if (!MilitaryTimeValidator.validateTime(end)) {
+            return false;
+        }
+
+        return true
+    }
+
+    private static validateTime(timeString: string) {
+        const [hour, minute] = timeString.split(':')
+
+        if (Number(hour) > 23 || Number(hour) < 0) {
             return false
         }
 
-        if (Number(startMinute) > 59 || Number(startMinute) < 0) {
-            return false
-        }
-
-        const [endHour, endMinute] = end.split(':')
-
-        if (Number(endHour) > 23) {
+        if (Number(minute) > 59 || Number(minute) < 0) {
             return false
         }
 
