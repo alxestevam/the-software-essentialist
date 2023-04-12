@@ -12,6 +12,12 @@ export class MilitaryTimeValidator {
             return false
         }
 
+        const [endHour, endMinute] = end.split(':')
+
+        if (Number(endHour) > 23) {
+            return false
+        }
+
         return true
     }
 }
