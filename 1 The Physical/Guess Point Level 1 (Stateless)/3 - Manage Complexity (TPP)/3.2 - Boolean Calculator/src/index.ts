@@ -1,9 +1,15 @@
 export class BooleanCalculator {
     static calculate(expression: string) {
-        const value = expression.includes('TRUE')
+        if (expression === 'TRUE') {
+            return true
+        }
 
-        if (expression.includes('NOT')) {
-            return !value
+        if (expression === 'FALSE') {
+            return false
+        }
+
+        if (expression.startsWith('NOT')) {
+            return expression.slice(4) !== 'TRUE'
         }
 
         if (expression.includes('AND')) {
@@ -12,7 +18,5 @@ export class BooleanCalculator {
             }
             return false
         }
-
-        return value
     }
 }
