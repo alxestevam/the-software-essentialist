@@ -40,5 +40,13 @@ describe('boolean calculator', () => {
         })
 
     })
+
+
+    describe('OR operator', () => {
+        it('should return true if the input is "TRUE OR FALSE"', () => {
+            expect(BooleanCalculator.calculate('TRUE OR FALSE')).toBe(true)
+        })
+
+    })
    
 })

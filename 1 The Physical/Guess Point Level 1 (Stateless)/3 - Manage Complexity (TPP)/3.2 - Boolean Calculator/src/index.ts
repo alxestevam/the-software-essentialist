@@ -18,5 +18,12 @@ export class BooleanCalculator {
             }
             return false
         }
+
+        if (expression.includes('OR')) {
+            if (expression.includes('TRUE')) {
+                return true
+            }
+            return false
+        }
     }
 }
