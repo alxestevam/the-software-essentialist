@@ -7,6 +7,9 @@ export class BooleanCalculator {
         }
 
         if (expression.includes('AND')) {
+            if (!expression.includes('FALSE')) {
+                return true
+            }
             return false
         }
 
