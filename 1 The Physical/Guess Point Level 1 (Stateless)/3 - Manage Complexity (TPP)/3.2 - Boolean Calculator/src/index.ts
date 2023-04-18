@@ -5,7 +5,11 @@ export class BooleanCalculator {
         if (expression.includes('NOT')) {
             return !value
         }
-        
+
+        if (expression.includes('AND')) {
+            return false
+        }
+
         return value
     }
 }

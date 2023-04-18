@@ -21,5 +21,12 @@ describe('boolean calculator', () => {
             expect(BooleanCalculator.calculate('NOT FALSE')).toBe(true)
         })
     })
+
+    describe('AND operator', () => {
+        it('should return false if the input is "TRUE AND FALSE"', () => {
+            expect(BooleanCalculator.calculate('TRUE AND FALSE')).toBe(false)
+        })
+
+    })
    
 })
