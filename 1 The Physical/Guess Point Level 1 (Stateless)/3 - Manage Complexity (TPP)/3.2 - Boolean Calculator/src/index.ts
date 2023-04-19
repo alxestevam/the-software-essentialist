@@ -12,6 +12,13 @@ export class BooleanCalculator {
             return expression.slice(4) !== 'TRUE'
         }
 
+        if (expression.includes('OR')) {
+            if (expression.includes('TRUE')) {
+                return true
+            }
+            return false
+        }
+
         if (expression.includes('AND')) {
             if (!expression.includes('FALSE')) {
                 return true
@@ -19,11 +26,5 @@ export class BooleanCalculator {
             return false
         }
 
-        if (expression.includes('OR')) {
-            if (expression.includes('TRUE')) {
-                return true
-            }
-            return false
-        }
     }
 }

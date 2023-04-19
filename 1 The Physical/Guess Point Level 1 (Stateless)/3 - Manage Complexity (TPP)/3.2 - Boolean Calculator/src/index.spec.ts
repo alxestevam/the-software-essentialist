@@ -53,4 +53,11 @@ describe('boolean calculator', () => {
 
     })
    
+    describe('combination of operators', () => {
+        it('should return true if the input is "TRUE OR TRUE OR TRUE AND FALSE"', () => {
+            expect(BooleanCalculator.calculate('TRUE OR TRUE OR TRUE AND FALSE')).toBe(true)
+        })
+
+    })
+   
 })
