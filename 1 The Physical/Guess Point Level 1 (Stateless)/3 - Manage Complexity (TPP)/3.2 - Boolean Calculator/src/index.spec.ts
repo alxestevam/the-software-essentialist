@@ -68,5 +68,9 @@ describe('boolean calculator', () => {
         it('should return true if the input is "TRUE AND NOT FALSE"', () => {
             expect(BooleanCalculator.calculate('TRUE AND NOT FALSE')).toBe(true)
         })
+
+        it('should return true if the input is "FALSE OR NOT FALSE"', () => {
+            expect(BooleanCalculator.calculate('FALSE OR NOT FALSE')).toBe(true)
+        })
     })
 })
