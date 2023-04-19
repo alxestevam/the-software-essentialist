@@ -53,7 +53,7 @@ describe('boolean calculator', () => {
 
     })
    
-    describe('combination of operators', () => {
+    describe('combination of operators with precedence NOT, AND, OR', () => {
         it('should return true if the input is "TRUE OR TRUE OR TRUE AND FALSE"', () => {
             expect(BooleanCalculator.calculate('TRUE OR TRUE OR TRUE AND FALSE')).toBe(true)
         })
@@ -62,6 +62,9 @@ describe('boolean calculator', () => {
             expect(BooleanCalculator.calculate('TRUE OR FALSE AND NOT FALSE')).toBe(true)
         })
 
+        it('should return true if the input is "TRUE AND NOT FALSE"', () => {
+            expect(BooleanCalculator.calculate('TRUE AND NOT FALSE')).toBe(true)
+        })
     })
    
 })

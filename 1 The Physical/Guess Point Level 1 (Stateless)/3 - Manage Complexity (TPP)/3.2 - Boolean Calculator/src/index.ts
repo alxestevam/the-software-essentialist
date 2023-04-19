@@ -8,7 +8,7 @@ export class BooleanCalculator {
             return false
         }
 
-        if (expression.startsWith('NOT')) {
+        if (expression.includes('NOT')) {
             return expression.slice(4) !== 'TRUE'
         }
 
