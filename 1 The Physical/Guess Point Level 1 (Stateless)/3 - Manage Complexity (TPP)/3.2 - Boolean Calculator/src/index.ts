@@ -1,5 +1,5 @@
 export class BooleanCalculator {
-    static calculate(expression: string) {
+    static calculate(expression: string): boolean {
         const tokens = expression.split(' ')
 
         if (tokens.length === 1) {
@@ -13,7 +13,10 @@ export class BooleanCalculator {
         const idxNot = tokens.indexOf('NOT')
 
         if (idxNot !== -1) {
-            return tokens[idxNot + 1] !== 'TRUE'
+            tokens.splice(idxNot, 1)
+            tokens[idxNot] = tokens[idxNot] === 'TRUE' ? 'FALSE' : 'TRUE'
+
+            return BooleanCalculator.calculate(tokens.join(' '))
         }
 
         const idxOr = tokens.indexOf('OR')
@@ -35,5 +38,6 @@ export class BooleanCalculator {
             return false
         }
 
+        return false
     }
 }
