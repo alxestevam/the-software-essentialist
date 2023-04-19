@@ -1,26 +1,35 @@
 export class BooleanCalculator {
     static calculate(expression: string) {
-        if (expression === 'TRUE') {
-            return true
-        }
+        const tokens = expression.split(' ')
 
-        if (expression === 'FALSE') {
-            return false
-        }
-
-        if (expression.includes('NOT')) {
-            return expression.slice(4) !== 'TRUE'
-        }
-
-        if (expression.includes('OR')) {
-            if (expression.includes('TRUE')) {
+        if (tokens.length === 1) {
+            if (tokens[0] === 'TRUE') {
                 return true
             }
+    
             return false
         }
 
-        if (expression.includes('AND')) {
-            if (!expression.includes('FALSE')) {
+        const idxNot = tokens.indexOf('NOT')
+
+        if (idxNot !== -1) {
+            return tokens[idxNot + 1] !== 'TRUE'
+        }
+
+        const idxOr = tokens.indexOf('OR')
+
+        if (idxOr != -1) {
+            if (tokens[idxOr - 1] === 'TRUE' || tokens[idxOr + 1] === 'TRUE') {
+                return true
+            }
+
+            return false
+        }
+
+        const idxAnd = tokens.indexOf('AND')
+
+        if (idxAnd != -1) {
+            if (tokens[idxAnd - 1] === 'TRUE' && tokens[idxAnd + 1] === 'TRUE') {
                 return true
             }
             return false
