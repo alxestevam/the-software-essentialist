@@ -1,5 +1,8 @@
 export class BooleanCalculator {
     static calculate(expression: string): boolean {
+        expression = expression.replace(/\(/g, ' ( ')
+        expression = expression.replace(/\)/g, ' ) ')
+        
         const tokens = expression.split(' ')
 
         if (tokens.length === 1) {
@@ -8,6 +11,13 @@ export class BooleanCalculator {
             }
     
             return false
+        }
+
+        const idxOpenParenthesis = tokens.lastIndexOf('(')
+        const idxCloseParenthesis = tokens.lastIndexOf(')', idxOpenParenthesis)
+        
+        if (idxOpenParenthesis != -1 && idxCloseParenthesis != -1) {
+            return BooleanCalculator.applyParenthesisOperation(tokens, idxOpenParenthesis, idxCloseParenthesis)
         }
 
         const idxNot = tokens.indexOf('NOT')
@@ -60,4 +70,13 @@ export class BooleanCalculator {
 
         return BooleanCalculator.calculate(tokens.join(' '))
     }
+
+    private static applyParenthesisOperation(tokens: string[], idxOpenParenthesis: number, idxCloseParenthesis: number) {
+        const parenthesisExpression = tokens.slice(idxOpenParenthesis + 1, idxCloseParenthesis).join(' ')
+        const result = BooleanCalculator.calculate(parenthesisExpression)
+
+        tokens.splice(idxOpenParenthesis + 1, idxCloseParenthesis - idxOpenParenthesis + 1)
+        tokens[idxOpenParenthesis] = result ? 'TRUE' : 'FALSE'
+        return BooleanCalculator.calculate(tokens.join(' '))
+    } 
 }

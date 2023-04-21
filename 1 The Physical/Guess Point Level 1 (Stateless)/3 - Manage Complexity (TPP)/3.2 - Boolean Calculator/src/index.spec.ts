@@ -81,4 +81,10 @@ describe('boolean calculator', () => {
             expect(BooleanCalculator.calculate('FALSE AND NOT FALSE')).toBe(false)
         })
     })
+
+    describe('parenthesis', () => {
+        it('should return false if the input is "(TRUE OR TRUE OR TRUE) AND FALSE"', () => {
+            expect(BooleanCalculator.calculate('(TRUE OR TRUE OR TRUE) AND FALSE')).toBe(false)
+        }) 
+    })
 })
