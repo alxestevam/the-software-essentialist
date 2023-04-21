@@ -62,6 +62,10 @@ describe('boolean calculator', () => {
             expect(BooleanCalculator.calculate('TRUE OR FALSE AND NOT FALSE')).toBe(true)
         })
 
+        it('should return true if the input is "TRUE AND TRUE AND NOT FALSE"', () => {
+            expect(BooleanCalculator.calculate('TRUE AND TRUE AND NOT FALSE')).toBe(true)
+        })
+
     })
    
     describe('combination of two operators with precedence', () => {
